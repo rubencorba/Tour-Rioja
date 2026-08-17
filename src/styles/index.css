@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "pannellum/build/pannellum.css";
+
+/*
+ * DESIGN TOKENS — "architectural plan" direction.
+ *
+ * The house is presented the way an architect presents a house: as a set
+ * of plan sheets. Warm paper, ink-dark text, a deep blueprint teal for
+ * structure, and a brass seal accent for the one action that matters on
+ * each screen. See AGENTS.md for the full rationale.
+ */
+@theme {
+  --color-paper: #ede6d6;
+  --color-paper-dark: #e2d9c4;
+  --color-ink: #23241f;
+  --color-ink-soft: #4a4a42;
+  --color-blueprint: #2c4a52;
+  --color-blueprint-dim: #1b2e33;
+  --color-brass: #9c7a3c;
+  --color-brass-light: #c9a868;
+  --color-rule: #c9bfa6;
+  --color-alert: #8b3a3a;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Pannellum overrides — re-skin the default viewer chrome to match the    */
+/* paper/ink/blueprint language instead of Pannellum's default dark UI.    */
+/* ---------------------------------------------------------------------- */
+
+.pnlm-container {
+  background: var(--color-blueprint-dim);
+  font-family: var(--font-body);
+}
+
+.pnlm-load-box {
+  background: rgba(27, 46, 51, 0.92);
+  border: 1px solid var(--color-brass);
+  border-radius: 2px;
+}
+
+.pnlm-lbar-fill {
+  background: var(--color-brass);
+}
+
+.pnlm-lmsg,
+.pnlm-title-box,
+.pnlm-author-box {
+  font-family: var(--font-mono);
+}
+
+.pnlm-panorama-info {
+  background: transparent;
+}
+
+.pnlm-title-box {
+  background: rgba(27, 46, 51, 0.85);
+  border-left: 2px solid var(--color-brass);
+  padding-left: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+/* Custom scene hotspots: a brass ring + pointer, labeled in mono caps,
+   evoking a stamped destination marker on a floor plan rather than the
+   library's default pin icon. */
+.tour-hotspot {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(237, 230, 214, 0.14);
+  border: 2px solid var(--color-brass-light);
+  box-shadow: 0 0 0 4px rgba(27, 46, 51, 0.35);
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.tour-hotspot:hover {
+  transform: scale(1.12);
+  background: rgba(201, 168, 104, 0.35);
+}
+
+.tour-hotspot .pnlm-tooltip span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border: 1px solid var(--color-brass);
+  border-radius: 2px;
+  padding: 0.35em 0.6em;
+}
