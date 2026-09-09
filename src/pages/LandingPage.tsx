@@ -37,7 +37,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
           <button
             type="button"
             onClick={onEnter}
-            className="group relative mx-auto mt-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-brass bg-blueprint font-display text-sm text-paper shadow-[0_6px_18px_rgba(44,74,82,0.45)] transition-transform duration-150 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brass motion-reduce:transition-none"
+            className="cursor-pointer group relative mx-auto mt-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-brass bg-blueprint font-display text-sm text-paper shadow-[0_6px_18px_rgba(44,74,82,0.45)] transition-transform duration-150 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brass motion-reduce:transition-none"
           >
             <span className="absolute inset-1.5 rounded-full border border-paper/25" />
             Ingresar
