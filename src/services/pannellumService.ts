@@ -26,6 +26,17 @@ interface PannellumTourConfig {
   scenes: Record<string, Pannellum.ConfigOptions>;
 }
 
+const ENTRY_DRIFT_SPEED = 4.4;
+const ENTRY_DRIFT_STOP_DELAY_MS = 3000;
+
+function driftDirectionFor(roomId: string): 1 | -1 {
+  let hash = 0;
+  for (let i = 0; i < roomId.length; i++) {
+    hash = (hash + roomId.charCodeAt(i)) | 0;
+  }
+  return hash % 2 === 0 ? 1 : -1;
+}
+
 /** Converts a `RoomConfig` into a Pannellum scene hotspot list. */
 function toHotSpots(room: RoomConfig): Pannellum.HotspotOptions[] {
   return room.hotspots.map((hotspot) => ({
@@ -52,6 +63,8 @@ function toSceneConfig(room: RoomConfig): Pannellum.ConfigOptions {
     pitch: room.initialPitch,
     hfov: room.initialHfov,
     hotSpots: toHotSpots(room),
+    autoRotate: driftDirectionFor(room.id) * ENTRY_DRIFT_SPEED,
+    autoRotateStopDelay: ENTRY_DRIFT_STOP_DELAY_MS,
   };
 }
 
@@ -88,3 +101,4 @@ export function createTourViewer(
   // source, see the module doc comment above) needs an explicit cast here.
   return window.pannellum.viewer(container, tourConfig as unknown as Pannellum.ConfigOptions);
 }
+

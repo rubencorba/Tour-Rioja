@@ -113,3 +113,13 @@
   border-radius: 2px;
   padding: 0.35em 0.6em;
 }
+
+@layer base {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}

@@ -42,7 +42,7 @@ export const ROOMS: RoomConfig[] = [
     image: comedorImage,
     initialYaw: 0,
     initialPitch: 0,
-    initialHfov: 110,
+    initialHfov: 120,
     hotspots: [
       {
         target: "Pasillo",
@@ -58,7 +58,7 @@ export const ROOMS: RoomConfig[] = [
     image: pasilloImage,
     initialYaw: 0,
     initialPitch: 0,
-    initialHfov: 110,
+    initialHfov: 120,
     hotspots: [
       {
         target: "Comedor",
@@ -92,7 +92,7 @@ export const ROOMS: RoomConfig[] = [
     image: banioImage,
     initialYaw: 0,
     initialPitch: 0,
-    initialHfov: 100,
+    initialHfov: 120,
     hotspots: [
       {
         target: "Pasillo",
@@ -108,7 +108,7 @@ export const ROOMS: RoomConfig[] = [
     image: dormitorio1Image,
     initialYaw: 0,
     initialPitch: 0,
-    initialHfov: 110,
+    initialHfov: 120,
     hotspots: [
       {
         target: "Pasillo",
@@ -124,7 +124,7 @@ export const ROOMS: RoomConfig[] = [
     image: dormitorio2Image,
     initialYaw: 0,
     initialPitch: 0,
-    initialHfov: 110,
+    initialHfov: 120,
     hotspots: [
       {
         target: "Pasillo",

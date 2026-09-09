@@ -8,7 +8,7 @@ function App() {
   const [screen, setScreen] = useState<Screen>("landing");
 
   return (
-    <div className="h-screen w-screen">
+    <div className="fixed inset-0 h-dvh w-screen overflow-hidden">
       {screen === "landing" ? (
         <LandingPage onEnter={() => setScreen("tour")} />
       ) : (
